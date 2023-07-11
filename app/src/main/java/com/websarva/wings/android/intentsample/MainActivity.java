@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
@@ -25,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        ListView lvMenu = findViewById(R.id.lvName);
+        ListView lvMenu = findViewById(R.id.lvMenu);
 
         List<Map<String, String>> menuList = new ArrayList<>();
         Map<String, String> menu = new HashMap<>();
