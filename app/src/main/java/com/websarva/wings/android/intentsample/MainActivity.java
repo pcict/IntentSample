@@ -2,8 +2,11 @@ package com.websarva.wings.android.intentsample;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 
@@ -87,5 +90,28 @@ public class MainActivity extends AppCompatActivity {
 
         lvMenu.setAdapter(adapter);
 
+        //P.168
+        lvMenu.setOnItemClickListener(new ListItemClickListener());
+
+
+    }
+
+    private class ListItemClickListener implements android.widget.AdapterView.OnItemClickListener {
+        @Override
+        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+            Map<String, String> item = (Map<String, String>)parent.getItemAtPosition(position);
+
+            String menuName = item.get("name");
+            String  menuPrice = item.get("price");
+
+            Intent intent = new Intent(MainActivity.this, MenuThanksActivity.class);
+
+            intent.putExtra("menuName", menuName);
+            intent.putExtra("menuPrice", menuPrice);
+
+            startActivity(intent);
+
+        }
     }
 }
